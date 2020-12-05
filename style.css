@@ -2,7 +2,7 @@ body {
     margin: 0px;
     padding: 0px;
     font-family: arial;
-    background-color: #ebebeb;
+    background-color: #bebebe;
 }
 
 header {
@@ -33,19 +33,19 @@ header h1 {
     padding-right: 100px;
     position: sticky;
     top: 80px;
-    background-color: #7395ae;
+    background-color: #7ca0ba;
     text-align: right;
     text-decoration: none;
     color: white;
 }
 
 #menubar ul {
-    padding: 8px;
+    padding: 10px;
     margin: 0;
     position: relative;
     list-style-type: none;
     font-size: 14px;
-    white-space: nowrap;
+    white-space: none;
 }
 
 #menubar li {
@@ -54,13 +54,19 @@ header h1 {
 }
 
 a {
-    padding: 5px;
+    /* top right bottom left */
+    padding: 15px 20px 10px 20px;
     color: #ffffff;
     text-decoration: none;
 }
 
 a.home {
-    color: #bfbfbf;
+    /* weight style color */
+    border-left: 2px solid #ebebeb;
+    border-right: 2px solid #ebebeb;
+    border-radius: 8px 8px 0px 0px;
+    color: #ffffff;
+    background-color: #6487a1;
 }
 
 #bimage {
@@ -79,8 +85,8 @@ h2 {
 }
 
 #bodytext p {
-    margin-left: 100px;
-    margin-right: 100px;
+    margin: 0px 100px 0px 100px;
+    padding: 5px;
 }
 
 #lvl1{
