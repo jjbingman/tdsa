@@ -64,9 +64,6 @@ a {
     text-decoration: none;
 }
 
-a.home {
-    color: #ebebeb;
-}
 
 a:hover {
     /* weight style color */
