@@ -1,0 +1,51 @@
+html {
+    background-color: #dbdbdb;
+}
+
+.container {
+    background-color: #ffedd4;
+    padding: 5px;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-areas: 
+        "header header header"
+        "menubar banner banner"
+        "menubar main main"
+        "footer footer footer";
+}
+
+.header {
+    background-color: #5656fc;
+    grid-area: header;
+    grid-template-areas: 
+        "image header header";
+}
+
+#sfbadge {
+    max-height: 50px;
+    grid-area: image;
+}
+
+#headtext {
+    grid-area: header;
+}
+
+.banner {
+    background-color: #bdfebd;
+    grid-area: banner;
+}
+
+.menu {
+    background-color: #ffbdff;
+    grid-area: menubar;
+}
+
+.main {
+    background-color: #569d9d;
+    grid-area: main;
+}
+
+.footer {
+    background-color: #ffffb6;
+    grid-area: footer;
+}
