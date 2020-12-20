@@ -1,51 +1,133 @@
 html {
-    background-color: #dbdbdb;
+    max-width: 100%;
 }
 
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: arial;
+    background-color: #bebebe;
+}
 .container {
-    background-color: #ffedd4;
+    margin: 0px;
     padding: 5px;
     display: grid;
-    grid-gap: 5px;
     grid-template-areas: 
         "header header header"
-        "menubar banner banner"
-        "menubar main main"
+        "menubar menubar menubar"
+        "banner banner banner"
+        "main main main"
         "footer footer footer";
 }
 
 .header {
-    background-color: #5656fc;
+    margin: 0px;
     grid-area: header;
+    grid-gap: 0px;
+    display: grid;
+    height: auto;
     grid-template-areas: 
-        "image header header";
+        "image header";
 }
 
-#sfbadge {
+.header #sfbadge {
+    padding: auto;
+    justify-content: left;
     max-height: 50px;
     grid-area: image;
 }
 
-#headtext {
+.header h1 {
+    padding: auto;
+    margin: 10px auto;
+    justify-content: center;
     grid-area: header;
 }
 
 .banner {
-    background-color: #bdfebd;
     grid-area: banner;
 }
 
+#bimage {
+    width: 100%;
+}
+
 .menu {
-    background-color: #ffbdff;
+    margin: 0px;
+    background-color: #7ca0ba;
+    border-bottom: 5px solid #6487a1;
     grid-area: menubar;
+    padding-right: 50px;
+    text-align: right;
+}
+
+.menu ul {
+    padding: 10px;
+    margin: 0px;
+    position: relative;
+    list-style-type: none;
+    font-size: 14px;
+    white-space: none;
+}
+
+.menu li {
+    display: inline-block;
+    width: 10%;
+}
+
+.menu a {
+    /* tab - top right bottom left */
+    padding: 15px 20px 10px 20px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    /* weight style color */
+    border-left: 2px solid #ebebeb;
+    border-right: 2px solid #ebebeb;
+    border-radius: 8px 8px 0px 0px;
+    color: #ffffff;
+    font-size: 14px;
+    background-color: #6487a1;
 }
 
 .main {
-    background-color: #569d9d;
     grid-area: main;
 }
 
+.main h2 {
+    margin-left: 40px;
+    padding: 10px;
+}
+
+.main #logo {
+    margin: 5px;
+    padding: 0px;
+    float: right;
+}
+
+.main p {
+    margin: 0px 100px 0px 100px;
+    padding: 5px;
+}
+
+.main #lvl1{
+    margin-left: 150px;
+    margin-right: 100px;
+}
+
+.main #lvl2{
+    margin-left: 150px;
+    margin-right: 100px;
+}
+
 .footer {
-    background-color: #ffffb6;
+    background-color: #7395ae;
+    margin: 0px;
+    padding: 5px;
     grid-area: footer;
+    text-align: center;
+    font-size: 12px;
+    color: #ffffff;
 }
