@@ -38,6 +38,7 @@ body {
     align-content: center;
     grid-area: header;
     text-shadow: 1px 1px 3px #808080;
+    color: #2f2f2f;
 }
 .banner {
     grid-area: banner;
@@ -71,6 +72,7 @@ main #logo {
 }
 main {
     grid-area: main;
+    color: #2f2f2f;
 }
 main h2 {
     margin-left: 40px;
