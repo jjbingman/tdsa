@@ -1,12 +1,20 @@
-body {
-    margin: 0px;
-    padding: 0px;
+:root {
+    --main-bg-color: #5d5c61;
+    --sec-bg-color: #7395ae;
+    --primary-color: #557a95;
+    /* --text-color: #9f9ea4; */
+    --text-color: #d5d5d5;
+    --tertiary-color: #b1a296;
+    --test: red;
+}
+html, body {
+    margin: 0;
+    padding: 0;
     font-family: arial;
-    background-color: #bebebe;
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
 }
 .container {
-    margin: 0px;
-    padding: 5px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
@@ -17,9 +25,10 @@ body {
         "footer footer";
 }
 header {
-    margin: 10px;
-    align-content: center;
+    background-color: var(--primary-color);
     grid-area: header;
+    position: sticky;
+    top: 0;
     grid-gap: 20px;
     display: grid;
     grid-template-columns: auto 1fr;
@@ -27,18 +36,19 @@ header {
         "image header";
 }
 header #sfbadge {
-    padding: 0px;
-    justify-content: left;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 100%;
     max-height: 50px;
     grid-area: image;
+    color: var(--text-color);
 }
 header h1 {
-    padding: 0px;
     margin: 10px auto;
     text-align: left;
     grid-area: header;
     text-shadow: 1px 1px 3px #808080;
-    color: #2f2f2f;
+    color: var(--text-color);
 }
 .banner {
     grid-area: banner;
@@ -51,16 +61,35 @@ nav {
     margin: 0px;
     padding: 10px 40px 10px 10px;
     position: sticky;
-    top: 0px;
-    background-color: #7ca0ba;
-    border-top: solid #7ca0ba;
+    top: 55px;
+    background-color: var(--sec-color);
     border-radius: 5px;
     border-bottom: 5px solid #6487a1;
     grid-area: nav;
     text-align: right;
     font-size: 14px;
-    word-spacing: 5px;
     box-shadow: 0px 4px 8px #656565;
+    z-index: 1;
+}
+nav a {
+    /* tab - top right bottom left */
+    padding: 15px 20px 10px 20px;
+    text-decoration: none;
+    color: var(--text-color);
+    border-left: 0px solid #7ca0ba;
+    border-right: 0px solid #7ca0ba;
+    border-radius: 5px;
+}
+nav a:hover {
+    border-left: 2px solid #bebebe;
+    border-right: 2px solid #bebebe;
+    border-radius: 8px 8px 0px 0px;
+    font-size: 14px;
+    background-color: var(--sec-bg-color);
+    transition: .2s ease-in-out;
+}
+nav .active {
+    color: #fff;
 }
 nav .icon {
     display: none;
@@ -72,7 +101,7 @@ main #logo {
 }
 main {
     grid-area: main;
-    color: #2f2f2f;
+    color: var(--text-color);
 }
 main h2 {
     margin-left: 40px;
@@ -95,73 +124,20 @@ main #lvl2{
     margin-right: 100px;
 }
 footer {
-    background-color: #7395ae;
+    background-color: #557895;
     border-radius: 5px 5px 0px 0px;
     margin-left: 5px;
     margin-right: 5px;
     padding: 5px;
     grid-area: footer;
     position: sticky;
-    /* bottom: 0; */
     text-align: center;
     font-size: 12px;
     color: #ffffff;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (max-width: 1000px) {
     .container {
-        margin: 0px;
-        padding: 5px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas: 
-            "header header"
-            "nav nav"
-            "banner banner"
-            "main main"
-            "footer footer";
-    }
-    nav {
-        margin: 0px;
-        position: sticky;
-        top: 0px;
-        background-color: #7ca0ba;
-        border-top: solid #7ca0ba;
-        border-radius: 5px;
-        border-bottom: 5px solid #6487a1;
-        grid-area: nav;
-        padding-right: 50px;
-        text-align: right;
-    }
-    nav a {
-        /* tab - top right bottom left */
-        padding: 15px 20px 10px 20px;
-        color: #ffffff;
-        text-decoration: none;
-        border-left: 0px solid #7ca0ba;
-        border-right: 0px solid #7ca0ba;
-        border-radius: 5px;
-    }
-    nav a:hover {
-        border-left: 2px solid #bebebe;
-        border-right: 2px solid #bebebe;
-        border-radius: 8px 8px 0px 0px;
-        color: #ffffff;
-        font-size: 14px;
-        background-color: #6487a1;
-        transition: .2s ease-in-out;
-    }
-    main #logo {
-        margin: 5px;
-        padding: 0px;
-        float: right;
-    }
-}
-
-@media screen and (max-width: 900px) {
-    .container {
-        margin: 0px;
-        padding: 5px;
         display: grid;
         grid-template-columns: .4fr 1fr 1fr;
         grid-template-areas: 
@@ -170,32 +146,29 @@ footer {
             "nav main main"
             "nav footer footer";
     }
+
     header h1 {
         font-size: 1.5em;
     }
     nav {
         margin: 0;
         padding: 0;
-        position: sticky;
-        top: 0;
-        background-color: #7ca0ba;
+        display: grid;
+        grid-area: nav;
         border-top: solid #7ca0ba;
         border-radius: 5px;
         border-right: 5px solid #6487a1;
         border-bottom: none;
-        /* grid-area: nav; */
         text-align: right;
         font-size: 14px;
         list-style-type: none;
-        line-height: 4rem;
     }
-    nav .icon {
+    nav a.icon {
         display: none;
     }
     nav a {
         margin: 0px;
         padding: 10px 30px 10px 10px;
-        color: #ffffff;
         text-decoration: none;
         border-top-left-radius: 8px;
         border-bottom-left-radius: 8px;
@@ -204,9 +177,12 @@ footer {
         background-color: #6487a1;
         border-top-left-radius: 8px;
         border-bottom-left-radius: 8px;
-        color: #ffffff;
         font-size: 14px;
-        transition: .5s ease-in-out;
+        transition: .2s ease-in-out;
+    }
+    main{
+        display: grid;
+        grid-area: main;
     }
     main #logo {
         margin: 5px;
@@ -214,12 +190,14 @@ footer {
         float: right;
         max-width: 250px;
     }
+    .banner {
+        display: grid;
+        grid-area: banner;
+    }
 }
 
 @media screen and (max-width: 650px) {
     .container {
-        margin: 0px;
-        padding: 5px;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-areas: 
@@ -235,10 +213,7 @@ footer {
     nav {
         margin: 0px;
         padding: 10px;
-        position: sticky;
-        top: 0px;
         border: none;
-        background-color: #7ca0ba;
         grid-area: nav;
         text-align: right;
         font-size: 14px;
@@ -247,27 +222,23 @@ footer {
     }
     nav a:not(:first-child) {
         display: none;
-        padding: 5px;
-        margin: 0;
     }
     nav a {
-        margin: 0px;
-        padding: 5px;
         color: #ffffff;
         text-decoration: none;
     }
     nav a:hover {
-        margin: 0px;
-        padding: 0px;
         background-color: #6487a1;
         border-radius: 8px;
         color: #ffffff;
-        font-size: 14px;
+        font-size: 1em;
     }
     nav a.icon {
         display: block;
         float: right;
-        padding-right: 20px;
+        right: 25px;
+        top: 10px;
+        padding: 10px;
     }
     .active {
         display: block;
@@ -277,11 +248,10 @@ footer {
         display: block;
         width: auto;
         text-align: left;
-        position: sticky;
-        top: 0px;
     }
     nav.responsive .icon {
         position: absolute;
+        /* padding: 10px; */
         right: 25px;
         top: 10px;
     }
@@ -289,7 +259,7 @@ footer {
         float: none;
         display: block;
         text-align: left;
-        padding: 10px;
+        /* padding: 10px; */
     }
     nav.responsive a:hover {
         background-color: #6487a1;
