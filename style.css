@@ -18,75 +18,87 @@ html, body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
-        "header header"
+        "badge header"
         "nav nav"
         "banner banner"
         "main main"
         "footer footer";
 }
 header {
-    background-color: var(--primary-color);
-    grid-area: header;
-    position: sticky;
-    top: 0;
-    grid-gap: 20px;
+    padding: 5px;
     display: grid;
+    grid-area: header;
     grid-template-columns: auto 1fr;
     grid-template-areas: 
         "image header";
+    position: fixed;
+    max-height: 100px;
+    width: 100vw;
+    background-color: var(--primary-color);
+    z-index: 3;
 }
-header #sfbadge {
-    margin-top: auto;
-    margin-bottom: auto;
+#sfbadge {
+    margin: -10px 0px 10px 20px;
+    padding-top: 20px;
+    display: grid;
+    position: fixed;
+    grid-area: badge;
     height: 100%;
-    max-height: 50px;
-    grid-area: image;
-    color: var(--text-color);
+    max-height: 200px;
+    z-index: 4;
+    border-bottom: 5px solid #6487a1;    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    background-color: var(--text-color);
 }
 header h1 {
-    margin: 10px auto;
-    text-align: left;
+    display: grid;
     grid-area: header;
-    text-shadow: 1px 1px 3px #808080;
+    margin-left: 40px;
+    text-align: center;
+    align-content: center;
+    text-shadow: 0px 0px 25px #fff;
     color: var(--text-color);
 }
 .banner {
+    display: grid;
     grid-area: banner;
+    padding: 0;
 }
 #bimage {
     width: 100%;
     border-radius: 5px;
 }
 nav {
-    margin: 0px;
-    padding: 10px 40px 10px 10px;
-    position: sticky;
-    top: 55px;
-    background-color: var(--sec-color);
-    border-radius: 5px;
-    border-bottom: 5px solid #6487a1;
+    display: grid;
     grid-area: nav;
+    position: sticky;
+    top: 60px;
+    margin-top: 60px;
+    padding: 20px 40px 10px 10px;
+    float: right;
+    background-color: var(--primary-color);
     text-align: right;
     font-size: 14px;
-    box-shadow: 0px 4px 8px #656565;
-    z-index: 1;
+    box-shadow: 10px 4px 10px var(--text-color);
 }
 nav a {
     /* tab - top right bottom left */
     padding: 15px 20px 10px 20px;
     text-decoration: none;
     color: var(--text-color);
-    border-left: 0px solid #7ca0ba;
-    border-right: 0px solid #7ca0ba;
-    border-radius: 5px;
+    border-left: 0px solid transparent;
+    border-right: 0px solid transparent;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 nav a:hover {
-    border-left: 2px solid #bebebe;
-    border-right: 2px solid #bebebe;
-    border-radius: 8px 8px 0px 0px;
+    border-left: 0px solid transparent;
+    border-right: 0px solid transparent;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     font-size: 14px;
     background-color: var(--sec-bg-color);
-    transition: .2s ease-in-out;
+    transition: .5s ease-in-out;
 }
 nav .active {
     color: #fff;
@@ -123,7 +135,7 @@ main #lvl2{
     margin-left: 150px;
     margin-right: 100px;
 }
-footer {
+footer, footer a {
     background-color: #557895;
     border-radius: 5px 5px 0px 0px;
     margin-left: 5px;
@@ -132,6 +144,7 @@ footer {
     grid-area: footer;
     position: sticky;
     text-align: center;
+    text-decoration: none;
     font-size: 12px;
     color: #ffffff;
 }
@@ -141,42 +154,51 @@ footer {
         display: grid;
         grid-template-columns: .4fr 1fr 1fr;
         grid-template-areas: 
-            "header header header"
+            "badge header header"
             "nav banner banner"
             "nav main main"
             "nav footer footer";
     }
-
     header h1 {
         font-size: 1.5em;
     }
+    #sfbadge {
+        display: grid;
+        position: fixed;
+        grid-area: badge;
+        height: 100%;
+        max-height: 100px;
+        z-index: 4;
+        margin-left: 20px;
+        border-bottom: 5px solid #6487a1;    border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        background-color: var(--text-color);
+       
+    }
     nav {
         margin: 0;
-        padding: 0;
         display: grid;
         grid-area: nav;
-        border-top: solid #7ca0ba;
-        border-radius: 5px;
-        border-right: 5px solid #6487a1;
-        border-bottom: none;
+        position: relative;
+        float: right;
+        background-color: var(--primary-color);
         text-align: right;
         font-size: 14px;
-        list-style-type: none;
+        box-shadow: none;
     }
     nav a.icon {
         display: none;
     }
     nav a {
-        margin: 0px;
         padding: 10px 30px 10px 10px;
         text-decoration: none;
         border-top-left-radius: 8px;
         border-bottom-left-radius: 8px;
+        text-align: right;
     }
     nav a:hover {
         background-color: #6487a1;
-        border-top-left-radius: 8px;
-        border-bottom-left-radius: 8px;
+        border: none;
         font-size: 14px;
         transition: .2s ease-in-out;
     }
@@ -193,6 +215,7 @@ footer {
     .banner {
         display: grid;
         grid-area: banner;
+        margin-top: 100px;
     }
 }
 
